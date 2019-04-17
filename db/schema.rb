@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_17_214102) do
+ActiveRecord::Schema.define(version: 2019_04_17_214932) do
 
   create_table "bios", force: :cascade do |t|
     t.text "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "companies", force: :cascade do |t|
-    t.string "title"
-    t.string "status"
-    t.datetime "last_contact"
-    t.string "website"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -66,6 +57,16 @@ ActiveRecord::Schema.define(version: 2019_04_17_214102) do
     t.index ["job_history_id"], name: "index_resumes_on_job_history_id"
     t.index ["skill_id"], name: "index_resumes_on_skill_id"
     t.index ["user_id"], name: "index_resumes_on_user_id"
+  end
+
+  create_table "sent_apps", force: :cascade do |t|
+    t.string "company"
+    t.string "title"
+    t.string "status"
+    t.datetime "last_contact"
+    t.string "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "skills", force: :cascade do |t|
